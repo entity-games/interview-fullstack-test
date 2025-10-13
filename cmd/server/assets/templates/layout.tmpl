@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Entity Interview">
+    <meta name="keywords" content="games, entity">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Entity Store</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/template.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/main.css" type="text/css">
+</head>
+
+<body>
+<div id="preloader">
+    <div class="loader"></div>
+</div>
+
+<div id="xl-auth"></div>
+<div id="opaque-overlay"></div>
+<div id="store-widget-container"></div>
+<div id="friends-widget-container"></div>
+
+<!-- Header Section Begin -->
+<div id="header-content"></div>
+<!-- Header End -->
+
+<!-- Content Section Begin -->
+<div id="main-content">
+{{block "content" .}}{{end}}
+</div>
+<!-- Content Section End -->
+
+<script>
+    window.appConfig = {
+        version: "{{.config.AppVersion}}",
+        baseUrl: "{{.config.BaseUrl}}",
+        userId: "{{.session.UserID}}",
+    };
+</script>
+<!-- Js Plugins -->
+<script src="/static/lib/jquery-3.3.1.min.js"></script>
+<script src="/static/lib/bootstrap.min.js"></script>
+<script src="/static/lib/jquery.magnific-popup.min.js"></script>
+<script src="/static/lib/mixitup.min.js"></script>
+<script src="/static/lib/masonry.pkgd.min.js"></script>
+<script src="/static/lib/jquery.slicknav.js"></script>
+<script src="/static/lib/owl.carousel.min.js"></script>
+<script src="/static/lib/main.js"></script>
+<script src="/static/js/index.js"></script>
+</body>
+
+</html>

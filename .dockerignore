@@ -1,0 +1,15 @@
+**/.DS_Store
+*.bak
+*.log
+.dockerignore
+.git/
+.gitignore
+.idea/
+.terraform*
+.vscode/
+__debug*
+build/
+deploy/
+dist/
+node_modules
+tmp/

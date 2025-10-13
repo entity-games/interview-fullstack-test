@@ -1,0 +1,26 @@
+{
+  "id": "https://portal.entitygames.com",
+  "name": "Entity Portal",
+  "short_name": "EntityPortal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000",
+  "description": "Add to home screen for the best, native experience",
+  "orientation": "landscape",
+  "dir": "left",
+  "icons": [
+    {
+      "purpose": "any",
+      "sizes": "192x192",
+      "src": "/static/img/icons/192.png",
+      "type": "image/png"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "/static/manifest.json"
+    }
+  ]
+}

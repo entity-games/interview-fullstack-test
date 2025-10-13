@@ -1,0 +1,96 @@
+{{template "layout.tmpl" .}}
+{{define "content"}}
+
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option spad set-bg" data-setbg="/static/img/faded-bg.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Best Instant Games</h2>
+                    <div class="breadcrumb__links">
+                        <span>Home of the best games available instantly on any device. Just click Play and enjoy!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<section class="portfolio spad">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="portfolio__filter">
+                    <li class="active" data-filter="*">All</li>
+                    <li data-filter=".category-shooter">Shooter</li>
+                    <li data-filter=".category-card">Cards</li>
+                    <li data-filter=".category-adventure">Adventure</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row portfolio__gallery">
+            {{range .games}}
+            <div class="col-lg-6 col-md-6 col-sm-6 mix category-{{.Category}}">
+                <div class="portfolio__item">
+                    <div class="portfolio__item__video set-bg">
+                        <img src="/static/games/{{.GameID}}.jpg" alt="{{.Title}}" />
+                        <video class="game-trailer"
+                               src="/static/games/{{.GameID}}.mp4"
+                               poster="/static/games/{{.GameID}}.jpg"
+                               muted
+                               preload="none"></video>
+                    </div>
+                    <div class="portfolio__item__text">
+                        {{if and (eq .UserContext.Unlocked false) (.Cost)}}
+                            <h4 class="click-pay" data-order-type="access" data-item-id="{{.GameID}}">{{.Title}}</h4>
+                        {{else}}
+                        <h4><a href="/game/s/{{.GameID}}/{{.TitleStub}}" class="click-play" data-game-id="{{.GameID}}">{{.Title}}</a></h4> <a target="_blank" href="/game/r/{{.GameID}}/{{.TitleStub}}" class="click-play" data-game-id="{{.GameID}}"><i class="fa fa-external-link"></i></a>
+                        {{end}}
+                        {{if .Cost }}
+                            {{if eq .UserContext.Unlocked false}}
+                                <h5 class="text-white click-pay" data-order-type="access" data-item-id="{{.GameID}}">Unlock for <i class="fa fa-ticket"></i> {{.Cost}}</h5>
+                            {{else}}
+                            <h5><a href="/game/s/{{.GameID}}/{{.TitleStub}}" class="text-white click-play" data-game-id="{{.GameID}}">OWNED <i class="fa fa-play-circle"></i></a></h5>
+                            {{end}}
+                        {{else}}
+                        <h5><a href="/game/s/{{.GameID}}/{{.TitleStub}}" class="text-white click-play" data-game-id="{{.GameID}}">FREE <i class="fa fa-play-circle"></i></a></h5>
+                        {{end}}
+                        <p class="game-description">{{.Description}}</p>
+                    </div>
+                </div>
+            </div>
+            {{end}}
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="pagination__option">
+                    <a href="#" class="arrow__pagination left__arrow"><span class="arrow_left"></span> Prev</a>
+                    <a href="#" class="number__pagination active">1</a>
+                    <a href="#" class="arrow__pagination right__arrow">Next <span class="arrow_right"></span></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer Section Begin -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__copyright">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p class="footer__copyright__text">Version: {{.config.AppVersion}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+{{end}}
