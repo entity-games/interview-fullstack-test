@@ -1,0 +1,38 @@
+<header class="header">
+    <div class="container">
+        <div class="header-row header-row-logo">
+            <div class="header__logo">
+                <a href="/"><img src="/static/img/entity-logo.jpg" alt=""></a>
+            </div>
+        </div>
+        <div class="header-row header-row-menu">
+            <nav class="header__nav__menu">
+                <ul>
+                    <li><a href="/">Games</a></li>
+                    {{if .session.UserID}}
+                    <li><a href="#" id="friends">Friends</a></li>
+                    {{end}}
+                </ul>
+            </nav>
+        </div>
+        <div class="header-row header-row-login">
+            <div class="header__login">
+                {{if .session.UserID}}
+                <div>
+                    <a href="#">{{.user.Username}}</a>
+                    <a href="/logout"><i class="fa fa-sign-out"></i></a>
+                </div>
+                {{else}}
+                <div id="auth-login-form">
+                    <form id="login-form">
+                        <input type="text" placeholder="Username" id="login-username" />
+                        <input type="password" placeholder="Password" id="login-password"  />
+                        <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-sign-in"></i>&nbsp;Login</button>
+                    </form>
+                    <div id="login-error"></div>
+                </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</header>
